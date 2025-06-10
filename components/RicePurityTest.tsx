@@ -645,15 +645,15 @@ export const RicePurityTest: React.FC = () => {
                             <span className="text-sm sm:text-lg font-bold">Download as Image</span>
                           </button>
                           
-                          <button
+                <button
                             onClick={() => downloadAsPDF()}
                             className="w-full flex items-center justify-center space-x-2 sm:space-x-3 p-3 sm:p-4 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 hover:shadow-2xl text-white rounded-xl sm:rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-95 focus:outline-none focus:scale-100"
-                          >
+                >
                             <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                             <span className="text-sm sm:text-lg font-bold">Download as PDF</span>
-                          </button>
+                </button>
 
                           <div className="pt-3 sm:pt-4 border-t border-gray-200">
                             <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
@@ -677,8 +677,8 @@ export const RicePurityTest: React.FC = () => {
                   🔄 Take Again
                 </button>
               </div>
-            </div>
-
+              </div>
+              
             {/* Results Chart */}
             <div className="px-2 sm:px-0">
               <ResultsChart 
