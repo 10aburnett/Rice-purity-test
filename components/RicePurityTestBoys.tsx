@@ -686,7 +686,7 @@ export const RicePurityTestBoys: React.FC = () => {
                     setIsCompleted(false);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="px-10 py-5 bg-gradient-to-r from-slate-600 to-stone-600 hover:from-slate-700 hover:to-stone-700 text-white font-black rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 hover:shadow-xl transform hover:scale-[1.05] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)]"
+                  className="w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-slate-600 to-stone-600 hover:from-slate-700 hover:to-stone-700 text-white font-black rounded-xl sm:rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 hover:shadow-xl transform hover:scale-[1.02] sm:hover:scale-[1.05] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] mx-auto block"
                 >
                   🔄 Take Again
                 </button>
