@@ -339,16 +339,6 @@ export const RicePurityTest: React.FC = memo(() => {
             
             {/* Mobile: Stack score and dropdown horizontally, Desktop: normal order */}
             <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6">
-              {/* Score Section */}
-              <div className="text-center sm:text-right">
-                <div className="text-xl sm:text-3xl md:text-4xl font-black text-slate-800">
-                  {checkedCount}<span className="text-stone-400">/{100}</span>
-                </div>
-                <div className="text-xs font-semibold text-stone-500">
-                  Score: <span className="font-black text-indigo-600">{score}</span>
-                </div>
-              </div>
-              
               {/* Test Selector Dropdown */}
               <div className="relative dropdown-container">
                 <button
@@ -389,6 +379,16 @@ export const RicePurityTest: React.FC = memo(() => {
                     </div>
                   </div>
                 )}
+              </div>
+              
+              {/* Score Section */}
+              <div className="text-center sm:text-right">
+                <div className="text-xl sm:text-3xl md:text-4xl font-black text-slate-800">
+                  {checkedCount}<span className="text-stone-400">/{100}</span>
+                </div>
+                <div className="text-xs font-semibold text-stone-500">
+                  Score: <span className="font-black text-indigo-600">{score}</span>
+                </div>
               </div>
             </div>
           </div>
