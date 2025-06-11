@@ -625,10 +625,10 @@ export const RicePurityTest: React.FC = memo(() => {
                           {/* Copy Link */}
                           <button
                             onClick={() => copyToClipboard()}
-                            className="flex flex-col items-center justify-center p-2 sm:p-3 h-16 sm:h-20 w-full bg-gray-600 hover:bg-gray-700 text-white rounded-xl sm:rounded-2xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-95 focus:outline-none focus:scale-100 col-span-2 sm:col-span-1"
+                            className="flex flex-col items-center justify-center p-2 sm:p-3 h-16 sm:h-20 w-full bg-gray-600 hover:bg-gray-700 text-white rounded-xl sm:rounded-2xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-95 focus:outline-none focus:scale-100"
                           >
                             <svg className="w-4 h-4 sm:w-5 sm:h-5 mb-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                             </svg>
                             <span className="text-xs sm:text-xs font-semibold leading-tight text-center">Copy Link</span>
                           </button>
@@ -654,7 +654,7 @@ export const RicePurityTest: React.FC = memo(() => {
                             className="w-full flex items-center justify-center space-x-2 sm:space-x-3 p-3 sm:p-4 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 hover:shadow-2xl text-white rounded-xl sm:rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-95 focus:outline-none focus:scale-100"
                 >
                             <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3 3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                             <span className="text-sm sm:text-lg font-bold">Download as PDF</span>
                 </button>
