@@ -107,15 +107,9 @@ export const RicePurityTestBoys: React.FC = () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
     if (isMobile) {
-      // Try to open Facebook app first
+      // Only try to open Facebook app
       const appUrl = `fb://share?link=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
-      const webUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
-      
-      // Try to open the app, fallback to web if app is not installed
       window.location.href = appUrl;
-      setTimeout(() => {
-        window.location.href = webUrl;
-      }, 100);
     } else {
       // Desktop behavior
       const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
