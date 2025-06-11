@@ -100,4 +100,4 @@ logs
 *.log
 
 # Local Netlify folder
-.netlify 
+.netlify .next/
