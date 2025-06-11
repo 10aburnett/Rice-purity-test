@@ -143,7 +143,7 @@ export const RicePurityTest: React.FC = memo(() => {
   const shareToFacebook = () => {
     const url = getCurrentUrl();
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    window.open(facebookUrl, '_blank');
+    window.open(facebookUrl, '_blank', 'noopener,noreferrer');
   };
 
   const shareToInstagram = async () => {
