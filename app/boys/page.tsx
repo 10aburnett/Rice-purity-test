@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Rice Purity Test for Boys 2025 | The Ultimate Guy Quiz',
+  title: 'New Rice Purity Test for Boys',
   description: 'Take the Rice Purity Test designed specifically for boys. 50 tailored questions to test your experiences. How do you stack up against other guys?',
   keywords: [
     'rice purity test boys',
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     '2025'
   ],
   openGraph: {
-    title: 'Rice Purity Test for Boys 2025 | How Pure Are You?',
+    title: 'New Rice Purity Test for Boys',
     description: 'Take the Rice Purity Test designed specifically for boys. 50 tailored questions to test your experiences.',
     url: 'https://newricepurity.com/boys',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rice Purity Test for Boys 2025 | The Ultimate Guy Quiz',
+    title: 'New Rice Purity Test for Boys',
     description: 'Just took the Boys Rice Purity Test 2025! Take it yourself and see how you stack up 🔥',
   },
 }

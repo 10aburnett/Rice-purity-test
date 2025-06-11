@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Rice Purity Test for Girls 2025 | The Ultimate Girls Quiz',
+  title: 'New Rice Purity Test for Girls',
   description: 'Take the Rice Purity Test designed specifically for girls. 50 tailored questions about modern female experiences. How pure are you, queen?',
   keywords: [
     'rice purity test girls',
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     '2025'
   ],
   openGraph: {
-    title: 'Rice Purity Test for Girls 2025 | How Pure Are You?',
+    title: 'New Rice Purity Test for Girls',
     description: 'Take the Rice Purity Test designed specifically for girls. 50 tailored questions about modern female experiences.',
     url: 'https://newricepurity.com/girls',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rice Purity Test for Girls 2025 | The Ultimate Girls Quiz',
+    title: 'New Rice Purity Test for Girls',
     description: 'Just took the Girls Rice Purity Test 2025! Take it yourself and see how you score 👑',
   },
 }
