@@ -423,7 +423,7 @@ export const RicePurityTest: React.FC = memo(() => {
             <p className="text-sm sm:text-base">
               It's a (mostly) anonymous way to reflect on just how deep you've gone into the modern human experience — from the mildly reckless to the legally questionable. Think of it as a cultural X-ray: part therapy, part chaos, part group chat confession.
             </p>
-            <p className="font-bold text-red-600 bg-red-50 p-3 sm:p-4 rounded-xl border-l-4 border-red-500 text-sm sm:text-base">
+            <p className="font-bold text-red-700 bg-red-50 p-3 sm:p-4 rounded-xl border-l-4 border-red-500 text-sm sm:text-base">
               <strong>Disclaimer:</strong> This isn't a to-do list. Trying to complete all 100 items will almost certainly end your career, your dignity, or result in you being cancelled.
             </p>
             <p className="font-bold text-base sm:text-lg">
@@ -735,7 +735,7 @@ export const RicePurityTest: React.FC = memo(() => {
                 <h4 className="text-lg sm:text-xl font-bold text-blue-600">Boys' Rice Purity Test</h4>
               </div>
               <p className="text-sm sm:text-base text-slate-600 mb-3">Questions tailored specifically for guys with modern, relatable scenarios.</p>
-              <div className="flex items-center text-blue-500 font-semibold text-sm sm:text-base">
+              <div className="flex items-center text-blue-700 font-semibold text-sm sm:text-base">
                 Try the boys' version 
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -748,7 +748,7 @@ export const RicePurityTest: React.FC = memo(() => {
                 <h4 className="text-lg sm:text-xl font-bold text-pink-600">Girls' Rice Purity Test</h4>
               </div>
               <p className="text-sm sm:text-base text-slate-600 mb-3">Questions designed for girls with experiences that resonate with modern women.</p>
-              <div className="flex items-center text-pink-500 font-semibold text-sm sm:text-base">
+              <div className="flex items-center text-pink-700 font-semibold text-sm sm:text-base">
                 Try the girls' version 
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

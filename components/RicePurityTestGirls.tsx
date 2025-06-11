@@ -430,7 +430,7 @@ export const RicePurityTestGirls: React.FC = () => {
             <p className="text-sm sm:text-base">
               Whether you're comparing with your girlfriends or just curious about where you stand, this test covers the modern female experience — from first dates to late-night group chats, from college parties to relationship drama.
             </p>
-            <p className="font-bold text-red-600 bg-red-50 p-3 sm:p-4 rounded-xl border-l-4 border-red-500 text-sm sm:text-base">
+            <p className="font-bold text-red-700 bg-red-50 p-3 sm:p-4 rounded-xl border-l-4 border-red-500 text-sm sm:text-base">
               <strong>Disclaimer:</strong> This isn't about judgment or competition. Your experiences are your own, and there's no "right" score. It's all about self-reflection and maybe some fun conversations with friends.
             </p>
             <p className="font-bold text-base sm:text-lg">
@@ -743,7 +743,7 @@ export const RicePurityTestGirls: React.FC = () => {
                 <h4 className="text-xl font-bold text-purple-600">Original Rice Purity Test</h4>
               </div>
               <p className="text-slate-600 mb-3">The classic version for everyone with updated questions for modern relevance.</p>
-              <div className="flex items-center text-purple-500 font-semibold">
+              <div className="flex items-center text-blue-700 font-semibold">
                 Try the original version 
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -756,7 +756,7 @@ export const RicePurityTestGirls: React.FC = () => {
                 <h4 className="text-xl font-bold text-blue-600">Boys' Rice Purity Test</h4>
               </div>
               <p className="text-slate-600 mb-3">Questions tailored specifically for guys with modern, relatable scenarios.</p>
-              <div className="flex items-center text-blue-500 font-semibold">
+              <div className="flex items-center text-blue-700 font-semibold">
                 Try the boys' version 
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -5,4 +5,4 @@ import { RicePurityTest } from '@/components/RicePurityTest';
 
 export default function HomePage() {
   return <RicePurityTest />;
-} 
+}

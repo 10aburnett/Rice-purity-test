@@ -430,7 +430,7 @@ export const RicePurityTestBoys: React.FC = () => {
             <p className="text-sm sm:text-base">
               This isn't just about bragging rights (though let's be honest, it kind of is). It's about reflecting on your journey through college, relationships, parties, and all the chaos that comes with being a guy in the modern world.
             </p>
-            <p className="font-bold text-red-600 bg-red-50 p-3 sm:p-4 rounded-xl border-l-4 border-red-500 text-sm sm:text-base">
+            <p className="font-bold text-red-700 bg-red-50 p-3 sm:p-4 rounded-xl border-l-4 border-red-500 text-sm sm:text-base">
               <strong>Disclaimer:</strong> This isn't a competition to see who can check the most boxes. Being "pure" isn't bad, and being "corrupt" isn't necessarily good. It's just for fun, bro.
             </p>
             <p className="font-bold text-base sm:text-lg">
@@ -447,7 +447,7 @@ export const RicePurityTestBoys: React.FC = () => {
               original
             </Link>
             {' '}test or see how the{' '}
-            <Link href="/girls" className="inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 mx-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs sm:text-sm font-bold rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+            <Link href="/girls" className="inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 mx-1 bg-gradient-to-r from-pink-700 to-rose-500 text-white text-xs sm:text-sm font-bold rounded-full hover:from-pink-800 hover:to-rose-600 transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
               girls'
             </Link>
             {' '}version differs!
@@ -725,7 +725,7 @@ export const RicePurityTestBoys: React.FC = () => {
                 original
               </Link>
               {' '}test or compare with the{' '}
-              <Link href="/girls" className="inline-flex items-center px-3 py-1.5 mx-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-sm font-bold rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-200 transform hover:scale-[1.05] shadow-lg hover:shadow-xl">
+              <Link href="/girls" className="inline-flex items-center px-3 py-1.5 mx-1 bg-gradient-to-r from-pink-700 to-rose-500 text-white text-sm font-bold rounded-full hover:from-pink-800 hover:to-rose-600 transition-all duration-200 transform hover:scale-[1.05] shadow-lg hover:shadow-xl">
                 girls'
               </Link>
               {' '}version!
@@ -753,10 +753,10 @@ export const RicePurityTestBoys: React.FC = () => {
             <Link href="/girls" className="block p-6 bg-white rounded-xl shadow-lg hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] transition-all duration-200 transform hover:scale-[1.02] border border-pink-200 hover:border-pink-300">
               <div className="flex items-center space-x-3 mb-3">
                 <span className="text-2xl">💅</span>
-                <h4 className="text-xl font-bold text-pink-600">Girls' Rice Purity Test</h4>
+                <h4 className="text-xl font-bold text-pink-700">Girls' Rice Purity Test</h4>
               </div>
               <p className="text-slate-600 mb-3">Questions designed for girls with experiences that resonate with modern women.</p>
-              <div className="flex items-center text-pink-500 font-semibold">
+              <div className="flex items-center text-pink-700 font-semibold">
                 Try the girls' version 
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
