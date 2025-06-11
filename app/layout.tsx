@@ -32,8 +32,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Rice Purity Test 2025 | The Original College Quiz',
-  description: 'Take the classic Rice Purity Test updated for 2025. Answer 100 questions honestly to find out your purity score. The modern college quiz experience.',
+  title: 'New Rice Purity Test',
+  description: 'Take the New Rice Purity Test updated for 2025. Answer 100 questions honestly to find out your purity score. The modern college quiz experience.',
   keywords: [
     'rice purity test',
     'purity test',
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     '2025',
     'modern purity test'
   ],
-  authors: [{ name: 'Rice Purity Test 2025' }],
-  creator: 'Rice Purity Test 2025',
-  publisher: 'Rice Purity Test 2025',
+  authors: [{ name: 'New Rice Purity Test' }],
+  creator: 'New Rice Purity Test',
+  publisher: 'New Rice Purity Test',
   formatDetection: {
     email: false,
     address: false,
@@ -57,10 +57,10 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Rice Purity Test 2025 | How Pure Are You?',
-    description: 'Take the classic Rice Purity Test updated for 2025. 100 questions to determine your purity score. The modern college quiz experience.',
+    title: 'New Rice Purity Test | How Pure Are You?',
+    description: 'Take the New Rice Purity Test updated for 2025. 100 questions to determine your purity score. The modern college quiz experience.',
     url: 'https://newricepurity.com',
-    siteName: 'Rice Purity Test 2025',
+    siteName: 'New Rice Purity Test',
     type: 'website',
     locale: 'en_US',
     images: [
@@ -68,14 +68,14 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Rice Purity Test 2025 - The Original College Quiz',
+        alt: 'New Rice Purity Test',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rice Purity Test 2025 | The Original College Quiz',
-    description: 'Just took the Rice Purity Test 2025! Take it yourself and see how pure you are 📊',
+    title: 'New Rice Purity Test',
+    description: 'Just took the New Rice Purity Test! Take it yourself and see how pure you are 📊',
     images: ['/twitter-image.png'],
   },
   robots: {
