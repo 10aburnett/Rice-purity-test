@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import { boysQuestions, boysCategories, type Question } from '@/data/questionsBoysData';
-import { ResultsChart } from '@/components/ResultsChart';
+import LazyResultsChart from '@/components/LazyResultsChart';
 import Link from 'next/link';
 
 interface ScoreBadge {
@@ -704,14 +704,16 @@ export const RicePurityTestBoys: React.FC = () => {
             </div>
 
             {/* Results Chart */}
-            <ResultsChart 
-              categoryScores={getCategoryScores()} 
-              testType="boys" 
-              totalScore={score}
-              totalQuestions={50}
-              questions={boysQuestions}
-              checkedItems={checkedItems}
-            />
+            <div className="px-2 sm:px-0">
+              <LazyResultsChart 
+                categoryScores={getCategoryScores()} 
+                testType="boys" 
+                totalScore={score}
+                totalQuestions={50}
+                questions={boysQuestions}
+                checkedItems={checkedItems}
+              />
+            </div>
           </>
         )}
 

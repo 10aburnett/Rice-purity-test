@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Performance optimizations
-  experimental: {
-    optimizeCss: true,
-  },
-  
   // Modern JS output for better performance
   transpilePackages: [],
   
