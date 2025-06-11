@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useCallback, memo } from 'react';
 import { questions, categories } from '@/data/questions';
-import { ResultsChart } from '@/components/ResultsChart';
+import LazyResultsChart from '@/components/LazyResultsChart';
 import Link from 'next/link';
 
 interface ScoreBadge {
@@ -199,7 +199,10 @@ export const RicePurityTest: React.FC = memo(() => {
 
   const downloadAsImage = async () => {
     try {
-      const html2canvas = await import('html2canvas');
+      const [{ default: html2canvas }] = await Promise.all([
+        import('html2canvas'),
+        new Promise(resolve => setTimeout(resolve, 0)) // Yield to browser
+      ]);
       const element = document.querySelector('.downloadable-content') as HTMLElement;
       if (!element) return;
       
@@ -219,7 +222,7 @@ export const RicePurityTest: React.FC = memo(() => {
       // Force a small delay to ensure CSS is fully loaded
       await new Promise(resolve => setTimeout(resolve, 100));
       
-      const canvas = await html2canvas.default(element, {
+      const canvas = await html2canvas(element, {
         backgroundColor: '#ffffff',
         scale: 3,
         logging: false,
@@ -250,9 +253,10 @@ export const RicePurityTest: React.FC = memo(() => {
 
   const downloadAsPDF = async () => {
     try {
-      const [html2canvas, jsPDF] = await Promise.all([
+      const [{ default: html2canvas }, jsPDF] = await Promise.all([
         import('html2canvas'),
-        import('jspdf')
+        import('jspdf'),
+        new Promise(resolve => setTimeout(resolve, 0)) // Yield to browser
       ]);
       
       const element = document.querySelector('.downloadable-content') as HTMLElement;
@@ -271,7 +275,7 @@ export const RicePurityTest: React.FC = memo(() => {
         badgeElement.style.padding = '12px 40px 28px 40px';
       }
       
-      const canvas = await html2canvas.default(element, {
+      const canvas = await html2canvas(element, {
         backgroundColor: '#ffffff',
         scale: 3,
         logging: false,
@@ -695,7 +699,7 @@ export const RicePurityTest: React.FC = memo(() => {
               
             {/* Results Chart */}
             <div className="px-2 sm:px-0">
-              <ResultsChart 
+              <LazyResultsChart 
                 categoryScores={categoryScores} 
                 testType="original" 
                 totalScore={score}

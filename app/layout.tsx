@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+import GoogleAnalytics from './components/GoogleAnalytics'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -9,6 +10,7 @@ const inter = Inter({
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],
+  adjustFontFallback: false,
 })
 
 const poppins = Poppins({ 
@@ -18,6 +20,7 @@ const poppins = Poppins({
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],
+  adjustFontFallback: false,
 })
 
 export const viewport: Viewport = {
@@ -117,6 +120,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
         {/* Google Analytics */}
@@ -136,6 +141,7 @@ export default function RootLayout({
           `}
         </Script>
         {children}
+        <GoogleAnalytics />
       </body>
     </html>
   )
