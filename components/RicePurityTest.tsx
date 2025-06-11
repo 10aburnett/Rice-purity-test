@@ -4,8 +4,6 @@ import React, { useState, useEffect, useMemo, useCallback, memo } from 'react';
 import { questions, categories } from '@/data/questions';
 import { ResultsChart } from '@/components/ResultsChart';
 import Link from 'next/link';
-import { DownloadButtons } from './DownloadButtons';
-import { SocialSharingButtons } from './SocialSharingButtons';
 
 interface ScoreBadge {
   min: number;
@@ -120,7 +118,6 @@ export const RicePurityTest: React.FC = memo(() => {
       await navigator.clipboard.writeText(text);
       alert('Link copied! You can now paste it anywhere to share your results.');
     } catch (err) {
-      console.error('Failed to copy:', err);
       alert('Link copied! You can now paste it anywhere to share your results.');
     }
   };
@@ -155,7 +152,6 @@ export const RicePurityTest: React.FC = memo(() => {
       await navigator.clipboard.writeText(text);
       alert('Link copied! You can now paste it in your Instagram story or bio.');
     } catch (err) {
-      console.error('Failed to copy:', err);
       alert('Link copied! You can now paste it in your Instagram story or bio.');
     }
   };
@@ -166,7 +162,6 @@ export const RicePurityTest: React.FC = memo(() => {
       await navigator.clipboard.writeText(text);
       alert('Link copied! You can now paste it in your TikTok bio or share in a video.');
     } catch (err) {
-      console.error('Failed to copy:', err);
       alert('Link copied! You can now paste it in your TikTok bio or share in a video.');
     }
   };
@@ -239,7 +234,6 @@ export const RicePurityTest: React.FC = memo(() => {
       link.href = canvas.toDataURL('image/png');
       link.click();
     } catch (error) {
-      console.error('Error downloading image:', error);
       alert('Error downloading image. Please try again.');
     }
   };
@@ -318,7 +312,6 @@ export const RicePurityTest: React.FC = memo(() => {
       
       pdf.save('rice-purity-test-results.pdf');
     } catch (error) {
-      console.error('Error downloading PDF:', error);
       alert('Error downloading PDF. Please try again.');
     }
   };
@@ -697,6 +690,8 @@ export const RicePurityTest: React.FC = memo(() => {
                 testType="original" 
                 totalScore={score}
                 totalQuestions={100}
+                questions={questions}
+                checkedItems={checkedItems}
               />
             </div>
           </>
@@ -765,4 +760,6 @@ export const RicePurityTest: React.FC = memo(() => {
       </main>
     </div>
   );
-}); 
+});
+
+RicePurityTest.displayName = 'RicePurityTest'; 

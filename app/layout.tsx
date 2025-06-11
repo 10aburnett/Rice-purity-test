@@ -129,26 +129,6 @@ export default function RootLayout({
             });
           `}
         </Script>
-        <Script id="web-vitals" strategy="afterInteractive">
-          {`
-            function sendToGoogleAnalytics({name, delta, value, id}) {
-              gtag('event', name, {
-                event_category: 'Web Vitals',
-                value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-                event_label: id,
-                non_interaction: true,
-              });
-            }
-            
-            import('web-vitals').then(({getCLS, getFID, getFCP, getLCP, getTTFB}) => {
-              getCLS(sendToGoogleAnalytics);
-              getFID(sendToGoogleAnalytics);
-              getFCP(sendToGoogleAnalytics);
-              getLCP(sendToGoogleAnalytics);
-              getTTFB(sendToGoogleAnalytics);
-            });
-          `}
-        </Script>
         {children}
       </body>
     </html>
