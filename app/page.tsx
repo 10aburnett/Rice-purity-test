@@ -1,5 +1,8 @@
-import { RicePurityTestMinimal } from '@/components/RicePurityTestMinimal';
+'use client';
 
-export default function Home() {
-  return <RicePurityTestMinimal />;
-} 
+import React from 'react';
+import { RicePurityTest } from '@/components/RicePurityTest';
+
+export default function HomePage() {
+  return <RicePurityTest />;
+}
