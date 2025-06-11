@@ -353,7 +353,7 @@ export const RicePurityTestBoys: React.FC = () => {
 
                 {/* Dropdown Menu */}
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-56 sm:w-64 bg-black/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl shadow-purple-500/25 overflow-hidden z-50">
+                  <div className="absolute left-0 sm:right-0 mt-2 w-56 sm:w-64 bg-black/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl shadow-purple-500/25 overflow-hidden z-50">
                     <div className="p-2 space-y-1">
                       <Link 
                         href="/" 

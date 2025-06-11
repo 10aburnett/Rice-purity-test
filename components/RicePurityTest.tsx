@@ -355,7 +355,7 @@ export const RicePurityTest: React.FC = memo(() => {
 
                 {/* Dropdown Menu */}
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-56 sm:w-64 bg-black/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl shadow-purple-500/25 overflow-hidden z-50">
+                  <div className="absolute left-0 sm:right-0 mt-2 w-56 sm:w-64 bg-black/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl shadow-purple-500/25 overflow-hidden z-50">
                     <div className="p-2 space-y-1">
                       <div className="bg-gradient-to-r from-violet-500 to-purple-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm flex items-center space-x-2 sm:space-x-3">
                         <span className="text-sm sm:text-lg">✨</span>
