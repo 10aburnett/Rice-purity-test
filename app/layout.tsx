@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
-import GoogleAnalytics from './components/GoogleAnalytics'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -141,7 +140,6 @@ export default function RootLayout({
           `}
         </Script>
         {children}
-        <GoogleAnalytics />
       </body>
     </html>
   )
