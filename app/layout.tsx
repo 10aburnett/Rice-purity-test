@@ -52,14 +52,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://rice-purity-test-2025.vercel.app'),
+  metadataBase: new URL('https://newricepurity.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Rice Purity Test 2025 | How Pure Are You?',
     description: 'Take the classic Rice Purity Test updated for 2025. 100 questions to determine your purity score. The modern college quiz experience.',
-    url: 'https://rice-purity-test-2025.vercel.app',
+    url: 'https://newricepurity.com',
     siteName: 'Rice Purity Test 2025',
     type: 'website',
     locale: 'en_US',
@@ -123,7 +123,30 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-0HCW98CJ9Z');
+            gtag('config', 'G-0HCW98CJ9Z', {
+              page_title: document.title,
+              page_location: window.location.href,
+            });
+          `}
+        </Script>
+        <Script id="web-vitals" strategy="afterInteractive">
+          {`
+            function sendToGoogleAnalytics({name, delta, value, id}) {
+              gtag('event', name, {
+                event_category: 'Web Vitals',
+                value: Math.round(name === 'CLS' ? delta * 1000 : delta),
+                event_label: id,
+                non_interaction: true,
+              });
+            }
+            
+            import('web-vitals').then(({getCLS, getFID, getFCP, getLCP, getTTFB}) => {
+              getCLS(sendToGoogleAnalytics);
+              getFID(sendToGoogleAnalytics);
+              getFCP(sendToGoogleAnalytics);
+              getLCP(sendToGoogleAnalytics);
+              getTTFB(sendToGoogleAnalytics);
+            });
           `}
         </Script>
         {children}

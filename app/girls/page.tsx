@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rice Purity Test for Girls 2025 | How Pure Are You?',
     description: 'Take the Rice Purity Test designed specifically for girls. 50 tailored questions about modern female experiences.',
-    url: 'https://rice-purity-test-2025.vercel.app/girls',
+    url: 'https://newricepurity.com/girls',
   },
   twitter: {
     card: 'summary_large_image',

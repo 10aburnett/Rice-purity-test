@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rice-purity-test-2025.vercel.app' // You can update this to your custom domain later
+  const baseUrl = 'https://newricepurity.com' // You can update this to your custom domain later
   
   return [
     {
