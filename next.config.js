@@ -42,21 +42,32 @@ const nextConfig = {
     ];
   },
   
-  // Experimental features for performance
-  experimental: {
-    gzipSize: true,
-  },
-  
-  // Bundle analyzer in development
+  // Webpack configuration
   webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
-    if (!dev && !isServer) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        '@': require('path').resolve(__dirname),
+    // Optimize memory usage
+    if (!dev) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          maxAsyncRequests: 5,
+          maxInitialRequests: 3,
+        },
       };
     }
     return config;
+  },
+  
+  // Build configuration
+  output: 'standalone',
+  
+  // Disable source maps for production builds
+  productionBrowserSourceMaps: false,
+  
+  // Reduce build memory usage
+  experimental: {
+    // Remove gzipSize to reduce build complexity
+    // gzipSize: true,
   },
 };
 
