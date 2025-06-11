@@ -1,6 +1,7 @@
 import React from 'react';
 import { RicePurityTestGirls } from '@/components/RicePurityTestGirls';
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 
 export const viewport: Viewport = {
   themeColor: [
@@ -34,5 +35,36 @@ export const metadata: Metadata = {
 }
  
 export default function GirlsTestPage() {
-  return <RicePurityTestGirls />;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    "name": "New Rice Purity Test for Girls",
+    "description": "Take the Rice Purity Test designed specifically for girls. 50 tailored questions about modern female experiences. How pure are you, queen?",
+    "url": "https://newricepurity.com/girls",
+    "creator": {
+      "@type": "Organization",
+      "name": "New Rice Purity Test"
+    },
+    "datePublished": "2025-01-01",
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "College Students"
+    }
+  };
+
+  return (
+    <>
+      <Script
+        id="girls-page-structured-data"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData)
+        }}
+      />
+      <RicePurityTestGirls />
+    </>
+  );
 } 
