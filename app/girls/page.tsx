@@ -45,6 +45,10 @@ export default function GirlsTestPage() {
       "@type": "Organization",
       "name": "New Rice Purity Test"
     },
+    "publisher": {
+      "@type": "Organization",
+      "name": "New Rice Purity Test"
+    },
     "datePublished": "2025-01-01",
     "inLanguage": "en-US",
     "isAccessibleForFree": true,
