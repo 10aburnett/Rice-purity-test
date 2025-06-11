@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Modern browser targeting - avoid legacy polyfills
-  swcMinify: true,
-  
   // Performance optimizations
   experimental: {
     optimizeCss: true,

@@ -5,7 +5,6 @@ import { lazy, Suspense } from 'react';
 const ResultsChart = lazy(() => import('./ResultsChart').then(module => ({ default: module.ResultsChart })));
 
 interface LazyResultsChartProps {
-  score: number;
   categoryScores: Array<{
     name: string;
     score: number;
@@ -14,13 +13,15 @@ interface LazyResultsChartProps {
     purityLevel: string;
     color: string;
   }>;
-  badge: {
-    min: number;
-    max: number;
-    label: string;
-    description: string;
-    color: string;
-  };
+  testType: 'original' | 'boys' | 'girls';
+  totalScore?: number;
+  totalQuestions?: number;
+  questions: Array<{
+    id: number;
+    text: string;
+    category: string;
+  }>;
+  checkedItems: Set<number>;
 }
 
 export default function LazyResultsChart(props: LazyResultsChartProps) {
