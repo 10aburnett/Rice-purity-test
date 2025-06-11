@@ -325,8 +325,8 @@ export const RicePurityTestBoys: React.FC = () => {
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-blue-200 shadow-lg shadow-blue-200/20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-5">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <div className="flex-1 min-w-0">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-2">
+            <div className="flex-1 min-w-0 text-center sm:text-left">
               <h1 className="text-lg sm:text-2xl md:text-3xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent leading-tight">
                 Rice Purity Test for Boys 2025
               </h1>
@@ -334,55 +334,59 @@ export const RicePurityTestBoys: React.FC = () => {
                 The classic college quiz, tailored for the boys
               </p>
             </div>
-
-            {/* Test Selector Dropdown */}
-            <div className="relative dropdown-container order-3 sm:order-2">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center space-x-2 sm:space-x-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] border border-blue-400/30"
-              >
-                <span className="text-sm sm:text-lg">💪</span>
-                <span className="sm:hidden text-xs">Boys'</span>
-                <span className="hidden sm:inline text-sm">Boys' Test</span>
-                <svg className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {/* Dropdown Menu */}
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-56 sm:w-64 bg-black/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl shadow-purple-500/25 overflow-hidden z-50">
-                  <div className="p-2 space-y-1">
-                    <Link 
-                      href="/" 
-                      className="flex items-center space-x-2 sm:space-x-3 text-white hover:text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-gray-800/50 hover:bg-purple-600 transition-all duration-200 group relative font-semibold text-xs sm:text-sm"
-                    >
-                      <span className="text-sm sm:text-lg">✨</span>
-                      <span>Original Test</span>
-                    </Link>
-                    <div className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm flex items-center space-x-2 sm:space-x-3">
-                      <span className="text-sm sm:text-lg">💪</span>
-                      <span>Boys' Test</span>
-                      <span className="ml-auto text-xs bg-white/20 px-2 py-1 rounded">Current</span>
-                    </div>
-                    <Link 
-                      href="/girls" 
-                      className="flex items-center space-x-2 sm:space-x-3 text-white hover:text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-gray-800/50 hover:bg-pink-600 transition-all duration-200 group relative font-semibold text-xs sm:text-sm"
-                    >
-                      <span className="text-sm sm:text-lg">💅</span>
-                      <span>Girls' Test</span>
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
             
-            <div className="text-right order-2 sm:order-3">
-              <div className="text-xl sm:text-3xl md:text-4xl font-black text-slate-800">
-                {checkedCount}<span className="text-blue-400">/50</span>
+            {/* Mobile: Stack score and dropdown horizontally, Desktop: normal order */}
+            <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6">
+              {/* Score Section */}
+              <div className="text-center sm:text-right">
+                <div className="text-xl sm:text-3xl md:text-4xl font-black text-slate-800">
+                  {checkedCount}<span className="text-blue-400">/50</span>
+                </div>
+                <div className="text-xs font-semibold text-blue-500">
+                  Score: <span className="font-black text-blue-600">{score}</span>
+                </div>
               </div>
-              <div className="text-xs font-semibold text-blue-500">
-                Score: <span className="font-black text-blue-600">{score}</span>
+              
+              {/* Test Selector Dropdown */}
+              <div className="relative dropdown-container">
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center space-x-2 sm:space-x-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] border border-blue-400/30"
+                >
+                  <span className="text-sm sm:text-lg">💪</span>
+                  <span className="sm:hidden text-xs">Boys'</span>
+                  <span className="hidden sm:inline text-sm">Boys' Test</span>
+                  <svg className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {/* Dropdown Menu */}
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-56 sm:w-64 bg-black/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl shadow-purple-500/25 overflow-hidden z-50">
+                    <div className="p-2 space-y-1">
+                      <Link 
+                        href="/" 
+                        className="flex items-center space-x-2 sm:space-x-3 text-white hover:text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-gray-800/50 hover:bg-purple-600 transition-all duration-200 group relative font-semibold text-xs sm:text-sm"
+                      >
+                        <span className="text-sm sm:text-lg">✨</span>
+                        <span>Original Test</span>
+                      </Link>
+                      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm flex items-center space-x-2 sm:space-x-3">
+                        <span className="text-sm sm:text-lg">💪</span>
+                        <span>Boys' Test</span>
+                        <span className="ml-auto text-xs bg-white/20 px-2 py-1 rounded">Current</span>
+                      </div>
+                      <Link 
+                        href="/girls" 
+                        className="flex items-center space-x-2 sm:space-x-3 text-white hover:text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-gray-800/50 hover:bg-pink-600 transition-all duration-200 group relative font-semibold text-xs sm:text-sm"
+                      >
+                        <span className="text-sm sm:text-lg">💅</span>
+                        <span>Girls' Test</span>
+                      </Link>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
