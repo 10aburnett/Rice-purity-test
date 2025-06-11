@@ -42,33 +42,11 @@ const nextConfig = {
     ];
   },
   
-  // Webpack configuration
-  webpack: (config, { dev, isServer }) => {
-    // Optimize memory usage
-    if (!dev) {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          ...config.optimization.splitChunks,
-          maxAsyncRequests: 5,
-          maxInitialRequests: 3,
-        },
-      };
-    }
-    return config;
-  },
-  
-  // Build configuration
-  output: 'standalone',
-  
   // Disable source maps for production builds
   productionBrowserSourceMaps: false,
   
-  // Reduce build memory usage
-  experimental: {
-    // Remove gzipSize to reduce build complexity
-    // gzipSize: true,
-  },
+  // Simplified configuration to avoid build issues
+  swcMinify: true,
 };
 
 module.exports = nextConfig; 
