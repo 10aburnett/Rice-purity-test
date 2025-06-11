@@ -142,8 +142,24 @@ export const RicePurityTest: React.FC = memo(() => {
 
   const shareToFacebook = () => {
     const url = getCurrentUrl();
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    window.open(facebookUrl, '_blank', 'noopener,noreferrer');
+    const text = getShareText();
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Try to open Facebook app first
+      const appUrl = `fb://share?link=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
+      const webUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
+      
+      // Try to open the app, fallback to web if app is not installed
+      window.location.href = appUrl;
+      setTimeout(() => {
+        window.location.href = webUrl;
+      }, 100);
+    } else {
+      // Desktop behavior
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
+      window.open(facebookUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const shareToInstagram = async () => {
