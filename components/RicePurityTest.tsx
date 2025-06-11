@@ -1,9 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, memo } from 'react';
 import { questions, categories } from '@/data/questions';
 import { ResultsChart } from '@/components/ResultsChart';
 import Link from 'next/link';
+import { DownloadButtons } from './DownloadButtons';
+import { SocialSharingButtons } from './SocialSharingButtons';
 
 interface ScoreBadge {
   min: number;
@@ -27,14 +29,15 @@ const scoreBadges: ScoreBadge[] = [
   { min: 0, max: 2, label: "The Devil", description: "Your soul is beyond salvation. You've descended into the depths of depravity where even demons fear to tread", color: "bg-black text-red-500" }
 ];
 
-export const RicePurityTest: React.FC = () => {
+export const RicePurityTest: React.FC = memo(() => {
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [isCompleted, setIsCompleted] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const score = 100 - checkedItems.size;
-  const checkedCount = checkedItems.size;
-  const progressPercentage = (checkedCount / 100) * 100;
+  // Memoized calculations
+  const checkedCount = useMemo(() => checkedItems.size, [checkedItems]);
+  const score = useMemo(() => 100 - checkedCount, [checkedCount]);
+  const progressPercentage = useMemo(() => (checkedCount / 100) * 100, [checkedCount]);
 
   useEffect(() => {
     if (checkedCount > 0) {
@@ -73,21 +76,25 @@ export const RicePurityTest: React.FC = () => {
     };
   }, []);
 
-  const handleCheckboxChange = (questionId: number) => {
-    const newCheckedItems = new Set(checkedItems);
-    if (newCheckedItems.has(questionId)) {
-      newCheckedItems.delete(questionId);
-    } else {
-      newCheckedItems.add(questionId);
-    }
-    setCheckedItems(newCheckedItems);
-  };
+  // Optimized checkbox handler
+  const handleCheckboxChange = useCallback((questionId: number) => {
+    setCheckedItems(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(questionId)) {
+        newSet.delete(questionId);
+      } else {
+        newSet.add(questionId);
+      }
+      return newSet;
+    });
+  }, []);
 
   const getScoreBadge = (score: number): ScoreBadge => {
     return scoreBadges.find(badge => score >= badge.min && score <= badge.max) || scoreBadges[scoreBadges.length - 1];
   };
 
-  const getCategoryScores = () => {
+  // Memoized category scores calculation
+  const categoryScores = useMemo(() => {
     return categories.map(category => {
       const categoryQuestions = category.questions;
       const checkedInCategory = categoryQuestions.filter(q => checkedItems.has(q.id)).length;
@@ -103,7 +110,7 @@ export const RicePurityTest: React.FC = () => {
         color: ''
       };
     });
-  };
+  }, [checkedItems]);
 
   const badge = getScoreBadge(score);
 
@@ -682,7 +689,7 @@ export const RicePurityTest: React.FC = () => {
             {/* Results Chart */}
             <div className="px-2 sm:px-0">
               <ResultsChart 
-                categoryScores={getCategoryScores()} 
+                categoryScores={categoryScores} 
                 testType="original" 
                 totalScore={score}
                 totalQuestions={100}
@@ -754,4 +761,4 @@ export const RicePurityTest: React.FC = () => {
       </main>
     </div>
   );
-}; 
+}); 

@@ -7,6 +7,8 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 })
 
 const poppins = Poppins({ 
@@ -14,6 +16,8 @@ const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 })
 
 export const viewport: Viewport = {

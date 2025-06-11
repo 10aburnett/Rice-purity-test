@@ -1,7 +1,10 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useMemo, lazy, Suspense } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+
+// Lazy load heavy chart components
+const LazyResponsiveContainer = lazy(() => import('recharts').then(module => ({ default: module.ResponsiveContainer })));
 
 interface CategoryScore {
   name: string;
@@ -17,6 +20,12 @@ interface ResultsChartProps {
   testType: 'original' | 'boys' | 'girls';
   totalScore?: number;
   totalQuestions?: number;
+  questions: Array<{
+    id: number;
+    text: string;
+    category: string;
+  }>;
+  checkedItems: Set<number>;
 }
 
 const COLORS = {
@@ -63,7 +72,7 @@ const shortenCategoryName = (name: string): string => {
   return abbreviations[name] || name;
 };
 
-export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, testType, totalScore, totalQuestions }) => {
+export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, testType, totalScore, totalQuestions, questions, checkedItems }) => {
   const colors = COLORS[testType];
   const pieColors = PIE_COLORS[testType];
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -210,40 +219,42 @@ export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, test
             <h4 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-gray-900 transition-colors duration-200">Impurity Distribution</h4>
             <p className="text-gray-600 text-xs group-hover:text-gray-700 transition-colors duration-200">How your experiences shape the bigger picture</p>
           </div>
-          <ResponsiveContainer width="100%" height={280}>
-            <PieChart>
-              <defs>
-                {PIE_COLORS[testType].map((color, index) => (
-                  <linearGradient key={index} id={`pie-gradient-${testType}-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor={color} stopOpacity={0.8} />
-                    <stop offset="100%" stopColor={color} stopOpacity={1} />
-                  </linearGradient>
-                ))}
-              </defs>
-              <Pie
-                data={pieData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={renderCustomLabel}
-                outerRadius={85}
-                innerRadius={35}
-                fill="#8884d8"
-                dataKey="value"
-                stroke="#ffffff"
-                strokeWidth={3}
-              >
-                {pieData.map((entry, index) => (
-                  <Cell 
-                    key={`cell-${index}`} 
-                    fill={`url(#pie-gradient-${testType}-${index})`}
-                    className="drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300"
-                  />
-                ))}
-              </Pie>
-              <Tooltip content={<CustomPieTooltip />} />
-            </PieChart>
-          </ResponsiveContainer>
+          <Suspense fallback={<div>Loading chart...</div>}>
+            <LazyResponsiveContainer width="100%" height={280}>
+              <PieChart>
+                <defs>
+                  {PIE_COLORS[testType].map((color, index) => (
+                    <linearGradient key={index} id={`pie-gradient-${testType}-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor={color} stopOpacity={0.8} />
+                      <stop offset="100%" stopColor={color} stopOpacity={1} />
+                    </linearGradient>
+                  ))}
+                </defs>
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  label={renderCustomLabel}
+                  outerRadius={85}
+                  innerRadius={35}
+                  fill="#8884d8"
+                  dataKey="value"
+                  stroke="#ffffff"
+                  strokeWidth={3}
+                >
+                  {pieData.map((entry, index) => (
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={`url(#pie-gradient-${testType}-${index})`}
+                      className="drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300"
+                    />
+                  ))}
+                </Pie>
+                <Tooltip content={<CustomPieTooltip />} />
+              </PieChart>
+            </LazyResponsiveContainer>
+          </Suspense>
           
           {/* Horizontal Legend Below Chart */}
           <div className="mt-2 flex flex-wrap justify-center gap-3">
@@ -265,78 +276,80 @@ export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, test
             <h4 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-gray-900 transition-colors duration-200">Purity vs Impurity</h4>
             <p className="text-gray-600 text-xs group-hover:text-gray-700 transition-colors duration-200">Compare your purity levels across categories</p>
           </div>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart
-              data={barData}
-              margin={{
-                top: 15,
-                right: 25,
-                left: -5,
-                bottom: 50,
-              }}
-            >
-              <defs>
-                <linearGradient id="purityGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#059669" stopOpacity={0.9}/>
-                  <stop offset="95%" stopColor="#047857" stopOpacity={1}/>
-                </linearGradient>
-                <linearGradient id="impurityGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#dc2626" stopOpacity={0.9}/>
-                  <stop offset="95%" stopColor="#b91c1c" stopOpacity={1}/>
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.6} />
-              <XAxis 
-                dataKey="name" 
-                fontSize={12}
-                fontWeight={600}
-                interval={0}
-                angle={-45}
-                textAnchor="end"
-                height={60}
-                tick={{ fill: '#374151' }}
-                stroke="#6b7280"
-              />
-              <YAxis 
-                fontSize={12}
-                fontWeight={600}
-                tick={{ fill: '#374151' }}
-                stroke="#6b7280"
-              />
-              <Tooltip content={<CustomTooltip />} />
-              <Legend 
-                wrapperStyle={{ 
-                  fontSize: '14px', 
-                  fontWeight: '700',
-                  paddingTop: '5px',
-                  color: '#374151',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '6px'
+          <Suspense fallback={<div>Loading chart...</div>}>
+            <LazyResponsiveContainer width="100%" height={350}>
+              <BarChart
+                data={barData}
+                margin={{
+                  top: 15,
+                  right: 25,
+                  left: -5,
+                  bottom: 50,
                 }}
-                iconType="rect"
-                iconSize={10}
-                layout="vertical"
-              />
-              <Bar 
-                dataKey="purity" 
-                stackId="a" 
-                fill="url(#purityGradient)" 
-                name="Purity %" 
-                radius={[0, 0, 4, 4]}
-                className="drop-shadow-sm"
-              />
-              <Bar 
-                dataKey="impurity" 
-                stackId="a" 
-                fill="url(#impurityGradient)" 
-                name="Impurity %" 
-                radius={[4, 4, 0, 0]}
-                className="drop-shadow-sm"
-              />
-            </BarChart>
-          </ResponsiveContainer>
+              >
+                <defs>
+                  <linearGradient id="purityGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#059669" stopOpacity={0.9}/>
+                    <stop offset="95%" stopColor="#047857" stopOpacity={1}/>
+                  </linearGradient>
+                  <linearGradient id="impurityGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#dc2626" stopOpacity={0.9}/>
+                    <stop offset="95%" stopColor="#b91c1c" stopOpacity={1}/>
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.6} />
+                <XAxis 
+                  dataKey="name" 
+                  fontSize={12}
+                  fontWeight={600}
+                  interval={0}
+                  angle={-45}
+                  textAnchor="end"
+                  height={60}
+                  tick={{ fill: '#374151' }}
+                  stroke="#6b7280"
+                />
+                <YAxis 
+                  fontSize={12}
+                  fontWeight={600}
+                  tick={{ fill: '#374151' }}
+                  stroke="#6b7280"
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend 
+                  wrapperStyle={{ 
+                    fontSize: '14px', 
+                    fontWeight: '700',
+                    paddingTop: '5px',
+                    color: '#374151',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
+                  iconType="rect"
+                  iconSize={10}
+                  layout="vertical"
+                />
+                <Bar 
+                  dataKey="purity" 
+                  stackId="a" 
+                  fill="url(#purityGradient)" 
+                  name="Purity %" 
+                  radius={[0, 0, 4, 4]}
+                  className="drop-shadow-sm"
+                />
+                <Bar 
+                  dataKey="impurity" 
+                  stackId="a" 
+                  fill="url(#impurityGradient)" 
+                  name="Impurity %" 
+                  radius={[4, 4, 0, 0]}
+                  className="drop-shadow-sm"
+                />
+              </BarChart>
+            </LazyResponsiveContainer>
+          </Suspense>
         </div>
       </div>
 
