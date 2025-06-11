@@ -334,7 +334,7 @@ export const RicePurityTest: React.FC = memo(() => {
             <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6">
               {/* Test Selector Dropdown */}
               <div className="relative dropdown-container">
-                <button
+              <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="flex items-center space-x-2 sm:space-x-3 bg-gradient-to-r from-violet-500 to-purple-500 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] border border-violet-400/30"
                 >

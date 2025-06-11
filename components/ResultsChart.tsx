@@ -212,9 +212,10 @@ export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, test
         </div>
       </div>
       
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+      {/* Charts side by side */}
+      <div className="flex flex-col lg:flex-row gap-8">
         {/* Modern Pie Chart */}
-        <div className="bg-white/80 backdrop-blur-sm pt-4 px-4 pb-2 rounded-3xl shadow-2xl border border-white/60 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-[1.01] group">
+        <div className="flex-1 bg-white/80 backdrop-blur-sm pt-4 px-4 pb-2 rounded-3xl shadow-2xl border border-white/60 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-[1.01] group">
           <div className="text-center mb-3">
             <h4 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-gray-900 transition-colors duration-200">Impurity Distribution</h4>
             <p className="text-gray-600 text-xs group-hover:text-gray-700 transition-colors duration-200">How your experiences shape the bigger picture</p>
@@ -271,7 +272,7 @@ export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, test
         </div>
 
         {/* Modern Bar Chart */}
-        <div className="bg-white/80 backdrop-blur-sm pt-4 px-4 pb-0 rounded-3xl shadow-2xl border border-white/60 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-[1.01] group">
+        <div className="flex-1 bg-white/80 backdrop-blur-sm pt-4 px-4 pb-0 rounded-3xl shadow-2xl border border-white/60 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-[1.01] group">
           <div className="text-center mb-3">
             <h4 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-gray-900 transition-colors duration-200">Purity vs Impurity</h4>
             <p className="text-gray-600 text-xs group-hover:text-gray-700 transition-colors duration-200">Compare your purity levels across categories</p>
@@ -353,35 +354,35 @@ export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, test
         </div>
       </div>
 
-      {/* Enhanced Category Summary Cards */}
+      {/* Enhanced Category Summary Cards - Now in one line */}
       <div className="mt-12">
         <h4 className="text-2xl font-bold text-center text-gray-800 mb-8 hover:text-gray-900 transition-colors duration-200">Detailed Breakdown</h4>
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${testType === 'original' ? 'xl:grid-cols-5' : 'xl:grid-cols-4'}`}>
+        <div className="flex flex-wrap justify-center gap-4">
           {categoryScores.map((category, index) => (
             <div 
               key={category.name} 
-              className="group bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/60 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300 cursor-pointer hover:border-white/80 flex flex-col"
+              className="group bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-white/60 hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300 cursor-pointer hover:border-white/80 flex flex-col items-center"
             >
-              <div className="flex items-start justify-between mb-4 min-h-[48px]">
-                <h5 className="font-bold text-gray-800 text-sm leading-tight group-hover:text-gray-900 transition-colors duration-200 flex-1 pr-2">{category.name}</h5>
+              <div className="flex items-center justify-between mb-3 w-full">
+                <h5 className="font-bold text-gray-800 text-sm leading-tight group-hover:text-gray-900 transition-colors duration-200">{shortenCategoryName(category.name)}</h5>
                 <div 
-                  className="w-5 h-5 rounded-full shadow-md ring-1 ring-white/50 flex-shrink-0 group-hover:shadow-lg group-hover:scale-[1.05] transition-all duration-300 mt-0.5"
+                  className="w-4 h-4 rounded-full shadow-md ring-1 ring-white/50 flex-shrink-0 group-hover:shadow-lg group-hover:scale-[1.05] transition-all duration-300"
                   style={{ backgroundColor: PIE_COLORS[testType][index % PIE_COLORS[testType].length] }}
                 />
               </div>
               
-              <div className="text-center flex-1 flex flex-col justify-center">
-                <div className="text-3xl font-black text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-200">
+              <div className="text-center">
+                <div className="text-2xl font-black text-gray-800 mb-1 group-hover:text-gray-900 transition-colors duration-200">
                   {category.percentage.toFixed(1)}%
                 </div>
-                <div className="text-sm text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-200">
+                <div className="text-xs text-gray-600 mb-2 group-hover:text-gray-700 transition-colors duration-200">
                   {category.score}/{category.maxScore} pure
                 </div>
                 
                 {/* Progress bar */}
-                <div className="w-full bg-gray-200 rounded-full h-3 mb-3 overflow-hidden group-hover:bg-gray-300 transition-colors duration-300">
+                <div className="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden group-hover:bg-gray-300 transition-colors duration-300">
                   <div 
-                    className="h-3 rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg"
+                    className="h-2 rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg"
                     style={{ 
                       width: `${category.percentage}%`,
                       background: `linear-gradient(90deg, ${getPurityColor(category.percentage)}, ${getPurityColor(category.percentage)}dd)`
@@ -390,7 +391,7 @@ export const ResultsChart: React.FC<ResultsChartProps> = ({ categoryScores, test
                 </div>
                 
                 <div 
-                  className="text-xs font-bold px-3 py-2 rounded-full inline-block shadow-sm group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-300"
+                  className="text-xs font-bold px-2 py-1 rounded-full inline-block shadow-sm group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-300"
                   style={{ 
                     backgroundColor: getPurityColor(category.percentage) + '20',
                     color: getPurityColor(category.percentage),
