@@ -20,6 +20,7 @@
     @apply bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700;
     transition: all 0.3s ease;
   }
+  
   .question-card:hover {
     @apply shadow-xl scale-[1.02];
   }
@@ -60,15 +61,6 @@
 
   .result-badge.corrupt {
     @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300;
-  }
-
-  /* Ensure buttons are perfectly centered on mobile */
-  @media (max-width: 640px) {
-    .downloadable-content button,
-    .downloadable-content .inline-block {
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
   }
 }
 
@@ -121,9 +113,9 @@ html {
   @apply outline-none ring-2 ring-brand-500/50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
 }
 
-
-/* Mobile-specific fix for Irredeemably Corrupt result badge only */
-@media (max-width: 600px) {
-  .irredeemably-corrupt-badge { display: block !important; margin: 0 auto !important; text-align: center !important;
+/* Mobile-specific positioning for irredeemably corrupt badge */
+@media (max-width: 768px) {
+  .irredeemably-corrupt-mobile {
+    margin-left: -5px;
   }
-}
+} 
