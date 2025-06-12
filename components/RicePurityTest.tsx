@@ -524,10 +524,10 @@ export const RicePurityTest: React.FC = memo(() => {
                     Your Rice Purity Score
               </h2>
               
-                  <div className="text-6xl md:text-7xl font-black text-slate-800 mb-6" style={{ fontSize: '72px', fontWeight: '900', color: '#1e293b', marginBottom: '6px', textAlign: 'center', marginLeft: '-15px' }}>
-                {score}
+                  <div className="text-6xl md:text-7xl font-black text-slate-800 mb-6" style={{ fontSize: '72px', fontWeight: '900', color: '#1e293b', marginBottom: '6px', textAlign: 'center', marginLeft: '0' }}>
+                    {score}
                     <span className="text-4xl md:text-5xl text-purple-500" style={{ fontSize: '48px', color: '#a855f7' }}>/100</span>
-              </div>
+                  </div>
               
                   <div className={`inline-block px-10 py-5 rounded-2xl text-2xl font-black shadow-lg mb-4 ${badge.color}`} style={{ 
                     fontSize: '24px', 

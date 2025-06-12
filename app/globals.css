@@ -62,6 +62,24 @@
   .result-badge.corrupt {
     @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300;
   }
+
+  /* Mobile centering fixes for result panels */
+  .downloadable-content {
+    @apply flex flex-col items-center;
+  }
+  
+  .downloadable-content .text-center {
+    @apply w-full flex flex-col items-center;
+  }
+  
+  /* Ensure buttons are perfectly centered on mobile */
+  @media (max-width: 640px) {
+    .downloadable-content button,
+    .downloadable-content .inline-block {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
 }
 
 @layer utilities {

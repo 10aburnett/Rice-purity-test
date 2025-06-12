@@ -529,7 +529,7 @@ export const RicePurityTestGirls: React.FC = () => {
                     Your Rice Purity Score (Girls)
                   </h2>
                   
-                  <div className="text-6xl md:text-7xl font-black text-slate-800 mb-6" style={{ fontSize: '72px', fontWeight: '900', color: '#1e293b', marginBottom: '6px', marginLeft: '-5px' }}>
+                  <div className="text-6xl md:text-7xl font-black text-slate-800 mb-6" style={{ fontSize: '72px', fontWeight: '900', color: '#1e293b', marginBottom: '6px', marginLeft: '0' }}>
                     {score}
                     <span className="text-4xl md:text-5xl text-pink-500" style={{ fontSize: '48px', color: '#ec4899' }}>/50</span>
                   </div>
