@@ -524,12 +524,12 @@ export const RicePurityTest: React.FC = memo(() => {
                     Your Rice Purity Score
               </h2>
               
-                  <div className="text-6xl md:text-7xl font-black text-slate-800 mb-6" style={{ fontSize: '72px', fontWeight: '900', color: '#1e293b', marginBottom: '6px', textAlign: 'center', marginLeft: '0' }}>
+                  <div className="text-6xl md:text-7xl font-black text-slate-800 mb-6" style={{ fontSize: '72px', fontWeight: '900', color: '#1e293b', marginBottom: '6px', textAlign: 'center', marginLeft: '-15px' }}>
                     {score}
                     <span className="text-4xl md:text-5xl text-purple-500" style={{ fontSize: '48px', color: '#a855f7' }}>/100</span>
                   </div>
               
-                  <div className={`inline-block px-10 py-5 rounded-2xl text-2xl font-black shadow-lg mb-4 ${badge.color}`} style={{ 
+                  <div className={`inline-block px-10 py-5 rounded-2xl text-2xl font-black shadow-lg mb-4 ${badge.color} ${badge.label === 'Irredeemably Corrupt' ? 'irredeemably-corrupt-badge' : ''}`} style={{ 
                     fontSize: '24px', 
                     fontWeight: '900',
                     backgroundColor: badge.color.includes('emerald') ? '#d1fae5' : badge.color.includes('teal') ? '#ccfbf1' : badge.color.includes('cyan') ? '#cffafe' : badge.color.includes('amber') ? '#fef3c7' : badge.color.includes('orange') ? '#fed7aa' : badge.color.includes('red') ? '#fecaca' : badge.color.includes('violet') ? '#e9d5ff' : badge.color.includes('purple') ? '#f3e8ff' : badge.color.includes('slate') ? '#f1f5f9' : '#000000',

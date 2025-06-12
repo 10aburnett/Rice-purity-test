@@ -20,7 +20,6 @@
     @apply bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700;
     transition: all 0.3s ease;
   }
-  
   .question-card:hover {
     @apply shadow-xl scale-[1.02];
   }
@@ -63,15 +62,6 @@
     @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300;
   }
 
-  /* Mobile centering fixes for result panels */
-  .downloadable-content {
-    @apply flex flex-col items-center;
-  }
-  
-  .downloadable-content .text-center {
-    @apply w-full flex flex-col items-center;
-  }
-  
   /* Ensure buttons are perfectly centered on mobile */
   @media (max-width: 640px) {
     .downloadable-content button,
@@ -129,4 +119,11 @@ html {
 /* Focus styles for accessibility */
 .focus-visible {
   @apply outline-none ring-2 ring-brand-500/50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
-} 
+}
+
+
+/* Mobile-specific fix for Irredeemably Corrupt result badge only */
+@media (max-width: 600px) {
+  .irredeemably-corrupt-badge { display: block !important; margin: 0 auto !important; text-align: center !important;
+  }
+}
