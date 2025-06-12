@@ -534,7 +534,7 @@ export const RicePurityTestBoys: React.FC = () => {
                     <span className="text-4xl md:text-5xl text-blue-500" style={{ fontSize: '48px', color: '#3b82f6' }}>/50</span>
                   </div>
                   
-                  <div className={`inline-block px-8 py-4 rounded-2xl text-2xl font-black shadow-xl mb-4 ${badge.color} ${badge.label === 'Irredeemably Corrupt' ? 'irredeemably-corrupt-mobile' : ''}`} style={{ 
+                  <div className={`inline-block px-8 py-4 rounded-2xl text-2xl font-black shadow-xl mb-4 ${badge.color} ${badge.label === 'Irredeemably Corrupt' ? 'irredeemably-corrupt-mobile' : ''} ${badge.label.toLowerCase().includes('corrupt') ? 'corrupt-result-badge' : ''}`} style={{ 
                     fontSize: '24px', 
                     fontWeight: '900',
                     marginBottom: '16px',
