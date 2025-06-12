@@ -529,7 +529,7 @@ export const RicePurityTest: React.FC = memo(() => {
                     <span className="text-4xl md:text-5xl text-purple-500" style={{ fontSize: '48px', color: '#a855f7' }}>/100</span>
               </div>
               
-                  <div className={`inline-block px-10 py-5 rounded-2xl text-2xl font-black shadow-xl mb-4 ${badge.color} ${badge.label === 'Irredeemably Corrupt' ? 'irredeemably-corrupt-mobile' : ''} ${badge.label.toLowerCase().includes('corrupt') ? 'corrupt-result-badge' : ''}`} style={{ 
+                  <div className={`inline-block px-10 py-5 rounded-2xl text-2xl font-black shadow-xl mb-4 ${badge.color} ${badge.label === 'Irredeemably Corrupt' ? 'irredeemably-corrupt-mobile' : ''} result-badge-mobile`} style={{ 
                     fontSize: '24px', 
                     fontWeight: '900',
                     marginBottom: '16px',
