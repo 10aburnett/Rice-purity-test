@@ -11,8 +11,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'New Rice Purity Test for Girls',
-  description: 'Take the Rice Purity Test designed specifically for girls. 50 tailored questions about modern female experiences. How pure are you, queen?',
+  title: 'The Rice Purity Test for Girls',
+  description: 'Take the Girls Rice Purity Test - 50 questions designed specifically for young women. Discover your innocence score and see how you compare. Free, anonymous, and fun!',
   keywords: [
     'rice purity test girls',
     'girls purity test',
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     '2025'
   ],
   openGraph: {
-    title: 'New Rice Purity Test for Girls',
-    description: 'Take the Rice Purity Test designed specifically for girls. 50 tailored questions about modern female experiences.',
+    title: 'The Rice Purity Test for Girls',
+    description: 'Take the Girls Rice Purity Test - 50 questions designed specifically for young women. Discover your innocence score and see how you compare.',
     url: 'https://newricepurity.com/girls',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'New Rice Purity Test for Girls',
+    title: 'The Rice Purity Test for Girls',
     description: 'Just took the Girls Rice Purity Test 2025! Take it yourself and see how you score 👑',
   },
 }
@@ -38,8 +38,8 @@ export default function GirlsTestPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Quiz",
-    "name": "New Rice Purity Test for Girls",
-    "description": "Take the Rice Purity Test designed specifically for girls. 50 tailored questions about modern female experiences. How pure are you, queen?",
+    "name": "The Rice Purity Test for Girls",
+    "description": "Take the Girls Rice Purity Test - 50 questions designed specifically for young women. Discover your innocence score and see how you compare. Free, anonymous, and fun!",
     "url": "https://newricepurity.com/girls",
     "creator": {
       "@type": "Organization",
