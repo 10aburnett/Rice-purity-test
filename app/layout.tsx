@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'New Rice Purity Test',
-  description: 'Take the New Rice Purity Test updated for 2025. Answer 100 questions honestly to find out your purity score. The modern college quiz experience.',
+  description: 'Take the updated version of the classic Rice Purity Test - 100 questions to determine your innocence score. A modern college quiz experience.',
   keywords: [
     'rice purity test',
     'purity test',

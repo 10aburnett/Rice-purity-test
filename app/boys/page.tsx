@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'New Rice Purity Test for Boys',
-  description: 'Take the Rice Purity Test designed specifically for boys. 50 tailored questions to test your experiences. How do you stack up against other guys?',
+  description: 'Take the New Rice Purity Test for Boys - 50 questions to test your innocence. How pure are you?',
   keywords: [
     'rice purity test boys',
     'boys purity test',
